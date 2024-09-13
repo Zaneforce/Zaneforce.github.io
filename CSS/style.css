@@ -43,7 +43,7 @@ header{
     height: 50px;
     display: flex;
     cursor: pointer;
-    padding: 10px 17px;
+    padding: 10px 14px;
     background-color: var(--white);
     border-radius: 30px;
     align-items: center;
@@ -66,7 +66,8 @@ header{
 .search-bar .fas{
     color: var(--nav);
     font-size: 18px;
-    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 .login{
@@ -99,4 +100,61 @@ header{
     margin-right: 5px;
     color: var(--white);
     font-size: 30px;
+}
+
+@media (max-width: 780px){
+    .search-bar:hover input{
+        width: 200px;
+    }
+    .login{
+        width: 100px;
+        padding: 7px 10px;
+    }
+}
+
+@media (max-width: 680px){
+    .search-bar{
+        height: 45px;
+        padding: 6px 10px;
+    }
+    .search-bar:hover input{
+        width: 150px;
+    }
+    .search-bar .fas{
+        font-size: 16px;
+        padding-top: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 510px){
+    header{
+        height: 70px;
+    }
+    .search-bar:hover input{
+        width: 150px;
+    }
+
+    .search-bar{
+        max-width: 250px;
+    }
+
+    .login{
+        max-width: 180px;
+    }
+
+    .logo img{
+        width: 180px;
+    }
+    .login{
+        width: 50px;
+        padding: 10px 10px;
+    }
+    .login button{
+        display: none;
+    }
+    .login .bx{
+        padding-right: 30px;
+        font-size: 30px;
+    }
 }
