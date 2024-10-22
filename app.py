@@ -1,3 +1,5 @@
+import webbrowser
+import threading
 from flask import Flask, render_template, Response
 import cv2
 import numpy as np
@@ -52,5 +54,12 @@ def index():
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+def open_browser():
+    # Wait a moment for the server to start before opening the browser
+    webbrowser.open_new('http://127.0.0.1:5000/')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Start the Flask app in a new thread
+    threading.Thread(target=app.run, kwargs={'debug': True, 'use_reloader': False}).start()
+    # Automatically open the web browser
+    open_browser()
