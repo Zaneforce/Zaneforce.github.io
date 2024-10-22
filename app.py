@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 app = Flask(__name__)
 
 # Load your trained model
-model = load_model(r"C:\Users\ASUS\OneDrive\Tugas Kuliah\HTML\Project AI\Implementation\model_fer2013.h5")
+model = load_model("Implementation\model_fer2013.h5")
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
 def gen_frames():
