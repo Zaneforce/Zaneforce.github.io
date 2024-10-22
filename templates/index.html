@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="../Assests/emo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&display=swap"/>
+    <title>ClassMood</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">ClassMood</a>
+        </div>
+        <div class="cam-button">
+            <a href="#" id="camNowButton">Cam Now</a>
+        </div>
+    </header>
+
+    <section class="isi">
+        <div class="shadow"></div>
+        <div class="title">
+            <h1>meet</h1>
+            <img src="../static/Assests/emo.png" alt="E-MO"> 
+            <h1>E-MO</h1>
+        </div>
+        <div class="border"></div>
+        <div class="cam-img">
+            <img src="../static/Assests/cam.png" alt="Cam" id="camImgButton"">
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="content">
+            <div class="text">
+                <h1>Empowering Education Through Expressions</h1>
+                <p>Our AI-powered platform helps educators detect students' emotions in real-time through facial expression analysis, providing insights into their understanding and engagement levels during class. By identifying when students feel confused or disengaged, teachers can offer personalized support, fostering a more interactive and inclusive learning environment. With a simple and intuitive interface, we prioritize both ease of use and data privacy, ensuring a seamless experience for educators and students alike.</p>
+                <a href="#" id="tryNowButton">Try Now</a>        
+            </div>
+            <div class="blue-shadow"></div>
+            <div class="content-img">
+                <img src="../static/Assests/ai.jpeg" alt="AI">
+            </div>
+        </div>
+     </section>
+
+     <section class="footer">
+        <div class="footer-text">
+            <p>© 2023 ClassMood. All rights reserved.</p>
+        </div>
+     </section>
+
+     <div class="webcam-modal" id="webcamModal">
+        <div class="webcam-content">
+            <button class="close-btn" id="closeBtn">Close</button>
+            <div id="video-container"></div>
+            <div class="emotion-display" id="emotionDisplay"></div>
+        </div>
+     </div>
+
+     <script>
+        // const webcamModal = document.getElementById('webcamModal');
+        // const video = document.getElementById('video');
+        // const emotionDisplay = document.getElementById('emotionDisplay');
+        // const closeBtn = document.getElementById('closeBtn');
+
+        // function showWebcam() {
+        //     webcamModal.style.display = 'flex'; 
+        //     const videoElement = document.createElement('video');
+        //     videoElement.src = '/video_feed'; // Video feed from Flask
+        //     videoElement.setAttribute('autoplay', '');
+        //     videoElement.setAttribute('controls', '');
+        //     document.querySelector('.webcam-content').insertBefore(videoElement, emotionDisplay);
+        // }
+        // function closeWebcam() {
+        //     webcamModal.style.display = 'none'; 
+        //     if (video.srcObject) {
+        //         const stream = video.srcObject;
+        //         const tracks = stream.getTracks();
+        //         tracks.forEach(track => track.stop());
+        //         video.srcObject = null;
+        //     }
+        //     clearInterval(captureInterval);
+        //     captureInterval = null; 
+        // }
+
+        // document.getElementById('camNowButton').addEventListener('click', showWebcam);
+        // document.getElementById('camImgButton').addEventListener('click', showWebcam);
+        // document.getElementById('tryNowButton').addEventListener('click', showWebcam);
+        // closeBtn.addEventListener('click', closeWebcam);
+
+        const webcamModal = document.getElementById('webcamModal');
+        const emotionDisplay = document.getElementById('emotionDisplay');
+        const closeBtn = document.getElementById('closeBtn');
+
+        function showWebcam() {
+            webcamModal.style.display = 'flex'; 
+            const videoElement = document.createElement('img');
+            videoElement.src = '/video_feed'; // Video feed from Flask
+            videoElement.setAttribute('autoplay', '');
+            videoElement.setAttribute('controls', '');
+            document.getElementById('video-container').appendChild(videoElement);
+        }
+        
+        closeBtn.addEventListener('click', function() {
+            webcamModal.style.display = 'none';
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = ''; // Clear video feed
+        });
+
+        document.getElementById('camNowButton').addEventListener('click', showWebcam);
+        document.getElementById('tryNowButton').addEventListener('click', showWebcam);
+        
+    </script>
+
+</body>
+</html>
