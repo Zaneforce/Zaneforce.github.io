@@ -1,1 +1,5 @@
-pip install opencv-python keras tensorflow numpy matplotlib
+opencv-python
+keras
+tensorflow
+numpy
+matplotlib
