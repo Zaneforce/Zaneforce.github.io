@@ -7,6 +7,24 @@ window.addEventListener("scroll", function () {
     }
 });
 
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.querySelector('.navbar ul');
+const closeMenu = document.getElementById('close-menu');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+closeMenu.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+});
+
+document.addEventListener('click', (event) => {
+    if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+        navMenu.classList.remove('active');
+    }
+});
+
 ScrollReveal({
         reset: true,
         distance: '60px',
@@ -46,3 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+if (window.innerWidth > 768) {
+    ScrollReveal().reveal('.home-info, .about-img, .portfolio h2, .service h2, .contact h2', { origin: 'left' });
+    ScrollReveal().reveal('.home-img, .about-info, .portfolio-container, .service-container, .contact form', { origin: 'right' });
+    ScrollReveal().reveal('.navbar, .footer', { origin: 'top' });
+    ScrollReveal().reveal('.portfolio-box, .service-box', { delay: 300, origin: 'bottom', distance: '50px', duration: 800 });
+}

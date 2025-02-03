@@ -44,7 +44,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
     visibility: hidden;
     opacity: 0;
     animation: show-content 1.5s linear forwards;
@@ -103,6 +103,13 @@ a {
 
 .navbar ul li:hover a,
 .navbar ul li.active a{
+    color: #7cf03d;
+}
+
+.close-menu {
+    display: none; /* Sembunyikan tombol close pada layar besar */
+    font-size: 24px;
+    cursor: pointer;
     color: #7cf03d;
 }
 
@@ -364,6 +371,8 @@ body.light-mode section {
     position: relative;
     width: 32vw;
     height: 32vw;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 50%;
     padding: 5px;
     display: flex;
@@ -452,6 +461,8 @@ body.light-mode section {
     position: relative;
     width: 24vw;
     height: 24vw;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 50%;
     padding: 5px;
     display: flex;
@@ -713,4 +724,183 @@ body.light-mode section {
 .footer-iconTop a i {
     font-size: 20px;
     color: #1f242d;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #7cf03d;
+    margin-left: 20px;
+    z-index: 1001;
+}
+
+@media (max-width: 1024px) {
+    .navbar ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #1f242d;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .navbar ul.active {
+        right: 0;
+    }
+
+    .navbar ul li {
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 100px 9% 50px;
+    }
+
+    .home-info h1 {
+        font-size: 40px;
+    }
+
+    .home-info h2 {
+        font-size: 24px;
+    }
+
+    .home-img .img-box {
+        width: 60vw;
+        height: 60vw;
+        margin: 20px auto;
+    }
+
+    .home{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-img .img-box, .about-img .img-box {
+        width: 60vw;
+        height: 60vw;
+        margin: 20px auto;
+    }
+
+    .portfolio-container, .service-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar ul {
+        display: none; /* Sembunyikan menu pada tablet */
+    }
+
+    .theme-toggle {
+        margin-left: auto; /* Geser toggle theme ke kanan */
+    }
+}
+
+/* Mobile (lebar layar kurang dari 768px) */
+@media (max-width: 768px) {
+    .home-info h1 {
+        font-size: 40px;
+    }
+
+    .home-info h2 {
+        font-size: 24px;
+    }
+
+    .home-img .img-box, .about-img .img-box {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .portfolio-container, .service-container {
+        grid-template-columns: 1fr; /* Satu kolom pada mobile */
+    }
+
+    .contact form .input-box {
+        flex-direction: column;
+    }
+
+    .contact form .input-box input {
+        width: 100%; /* Input full width pada mobile */
+        margin: 10px 0;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+    }
+
+    .theme-toggle {
+        font-size: 20px;
+    }
+
+    .footer {
+        padding: 20px 5%;
+        font-size: 14px;
+    }
+}
+
+/* Mobile kecil (lebar layar kurang dari 480px) */
+@media (max-width: 480px) {
+    .home-info h1 {
+        font-size: 32px;
+    }
+
+    .home-info h2 {
+        font-size: 20px;
+    }
+
+    .home-info p {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .portfolio-layer h4 {
+        font-size: 18px;
+    }
+
+    .portfolio-layer p {
+        font-size: 14px;
+    }
+
+    .service-box h3 {
+        font-size: 20px;
+    }
+
+    .service-box p {
+        font-size: 14px;
+    }
+
+    .contact h2 {
+        font-size: 40px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
 }
